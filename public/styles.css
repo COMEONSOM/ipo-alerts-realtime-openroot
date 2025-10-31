@@ -1,0 +1,279 @@
+/* ============================================================
+   🌐 INDIAN IPO TRACKER — RESPONSIVE UI (OCT 2025)
+   AUTHOR: SOMU
+   PURPOSE: CLEAN, SCALABLE, AND DEVICE-FRIENDLY DESIGN SYSTEM
+   ============================================================ */
+
+/* -------------------- ROOT VARIABLES -------------------- */
+:root {
+  /* BRAND COLORS */
+  --violet: #6c63ff;
+  --violet-light: #8b83ff;
+  --dark: #0f172a;
+  --dark-alt: #1e293b;
+  --light: #f8fafc;
+  --gray: #94a3b8;
+  --white: #ffffff;
+
+  /* TYPOGRAPHY */
+  --font-family: "Poppins", sans-serif;
+  --text-normal: 1rem;
+  --text-small: 0.9rem;
+  --text-large: 1.25rem;
+
+  /* SPACING */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+
+  /* RADIUS AND SHADOWS */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  /* TRANSITION */
+  --transition: 0.3s ease-in-out;
+}
+
+/* -------------------- GLOBAL RESETS -------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--light);
+  color: var(--dark);
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================
+   HEADER SECTION
+   ============================================================ */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--dark);
+  color: var(--white);
+  padding: var(--space-sm) var(--space-lg);
+  border-bottom: 3px solid var(--violet);
+  flex-wrap: wrap;
+}
+
+/* LEFT SECTION: LOGO + TAG */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.company-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.header-tag {
+  font-size: var(--text-normal);
+  font-weight: 600;
+  color: var(--violet-light);
+  letter-spacing: 0.5px;
+}
+
+/* RIGHT SECTION: PAGE TITLE */
+header h1 {
+  font-size: 1.5rem;
+  color: var(--white);
+  text-align: right;
+  flex: 1;
+  margin: 0;
+}
+
+/* STICKY HEADER ON LARGE DEVICES */
+@media (min-width: 768px) {
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+}
+
+/* ============================================================
+   IPO CONTAINER SECTION
+   ============================================================ */
+.ipo-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+  margin: var(--space-lg);
+}
+
+/* IPO CARD DESIGN */
+.ipo-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+  text-align: left;
+}
+
+.ipo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+}
+
+.ipo-card h3 {
+  color: var(--violet);
+  margin-bottom: var(--space-xs);
+  font-size: var(--text-large);
+}
+
+.ipo-card p {
+  font-size: var(--text-small);
+  margin-bottom: 0.4rem;
+  color: var(--dark-alt);
+}
+
+/* ============================================================
+   REFRESH SECTION
+   ============================================================ */
+.refresh-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: var(--space-lg) 0;
+}
+
+#refresh-btn {
+  background: var(--violet);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.75rem;
+  font-size: var(--text-normal);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+#refresh-btn:hover:not(:disabled) {
+  background: var(--violet-light);
+  transform: translateY(-2px);
+}
+
+#refresh-btn:disabled {
+  background: var(--gray);
+  cursor: not-allowed;
+}
+
+.status-text {
+  font-size: var(--text-small);
+  color: var(--dark-alt);
+}
+
+/* ============================================================
+   FOOTER SECTION
+   ============================================================ */
+footer {
+  margin-top: auto;
+  padding: var(--space-sm);
+  background: var(--dark);
+  color: var(--white);
+  font-size: var(--text-small);
+  letter-spacing: 0.3px;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN RULES
+   ============================================================ */
+
+/* 📱 SMALL DEVICES (MOBILE + FOLDING PHONES) */
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    gap: var(--space-xs);
+    text-align: center;
+  }
+
+  header h1 {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .company-logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .ipo-container {
+    margin: var(--space-sm);
+    gap: var(--space-sm);
+  }
+
+  .ipo-card {
+    text-align: center;
+  }
+}
+
+/* 💻 TABLETS + MEDIUM DEVICES */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .ipo-container {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+
+  header {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+}
+
+/* 🖥️ LARGE SCREENS (DESKTOPS + TVs) */
+@media (min-width: 1025px) {
+  .ipo-container {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    margin: var(--space-lg) auto;
+    max-width: 1400px;
+  }
+
+  .ipo-card {
+    padding: var(--space-md);
+  }
+
+  footer {
+    font-size: var(--text-normal);
+  }
+}
+
+/* ============================================================
+   ANIMATIONS / EXTRA INTERACTIONS (OPTIONAL)
+   ============================================================ */
+.loading {
+  font-size: var(--text-normal);
+  color: var(--gray);
+  padding: var(--space-md);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
